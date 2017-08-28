@@ -12,6 +12,15 @@
 /// @file: Defines the UW ceiling supply board CANopen interface.
 
 #include <stdint.h>
+#include "uv_if_config.h"
+
+
+
+#if !CONFIG_CSB_IF_REVISION
+#error "CONFIG_CSB_IF_REVISION should define the CAN interface revision number for CSB."
+#endif
+
+
 
 
 #define CSB_NODE_ID					7
