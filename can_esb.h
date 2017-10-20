@@ -90,7 +90,10 @@ typedef enum {
 	// VDD is critically low
 	ESB_EMCY_VDD_LOW_WARNING,
 	// Engine is running but VDD is < 14 V => alternator is not charging
-	ESB_EMCY_VDD_ALT_WARNING
+	ESB_EMCY_VDD_ALT_WARNING,
+	// Engine stop solenoid misfunctioned. Could be a mistake in recognizing
+	// engine start & on solenoids, start the engine again.
+	ESB_EMCY_ENGINE_STOP_MISMATCH
 } esb_emcy_e;
 
 
