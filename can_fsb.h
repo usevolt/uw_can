@@ -54,15 +54,6 @@ typedef enum {
 } fsb_emcy_e;
 
 
-/// @brief: Defines the state of a single thruster power supply
-enum {
-	FSB_OUTPUT_STATE_OFF = 0,
-	FSB_OUTPUT_STATE_ON,
-	FSB_OUTPUT_STATE_OVERLOAD,
-	FSB_OUTPUT_STATE_FAULT
-};
-typedef uint8_t fsb_output_state_e;
-
 
 
 /// @brief: Ignition key states
@@ -87,7 +78,7 @@ typedef uint8_t fsb_ignkey_states_e;
 #define FSB_HORN_STATUS_INDEX					0x2110
 #define FSB_HORN_STATUS_SUBINDEX				0
 #define FSB_HORN_STATUS_TYPE					CANOPEN_UNSIGNED8
-#define FSB_HORN_STATUS_PERMISSIONS				CANOPEN_RO
+#define FSB_HORN_STATUS_PERMISSIONS				CANOPEN_RW
 
 #define FSB_HORN_CURRENT_INDEX					0x2111
 #define FSB_HORN_CURRENT_SUBINDEX				0
