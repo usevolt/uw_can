@@ -27,14 +27,6 @@
 
 
 
-/// @brief: Defines the state of a single thruster power supply
-enum {
-	CSB_OUTPUT_STATE_OFF = 0,
-	CSB_OUTPUT_STATE_ON,
-	CSB_OUTPUT_STATE_OVERCURRENT
-};
-typedef uint8_t csb_output_state_e;
-
 
 /// @brief: Defines all CSB's EMCY message data values.
 /// All EMCY messages belong to device specific EMCY error code category (0xFF00)
