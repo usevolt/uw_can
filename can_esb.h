@@ -90,7 +90,10 @@ typedef enum {
 	// VDD is critically low
 	ESB_EMCY_VDD_LOW_WARNING,
 	// Engine is running but VDD is < 14 V => alternator is not charging
-	ESB_EMCY_VDD_ALT_WARNING
+	ESB_EMCY_VDD_ALT_WARNING,
+	// Engine stop solenoid misfunctioned. Could be a mistake in recognizing
+	// engine start & on solenoids, start the engine again.
+	ESB_EMCY_ENGINE_STOP_MISMATCH
 } esb_emcy_e;
 
 
@@ -199,12 +202,12 @@ typedef enum {
 
 #define ESB_MOTOR_TEMP_INDEX					0x2240
 #define ESB_MOTOR_TEMP_SUBINDEX					0
-#define ESB_MOTOR_TEMP_TYPE						CANOPEN_UNSIGNED16
+#define ESB_MOTOR_TEMP_TYPE						CANOPEN_UNSIGNED8
 #define ESB_MOTOR_TEMP_PERMISSIONS				CANOPEN_RO
 
 #define ESB_OIL_TEMP_INDEX						0x2250
 #define ESB_OIL_TEMP_SUBINDEX					0
-#define ESB_OIL_TEMP_TYPE						CANOPEN_UNSIGNED16
+#define ESB_OIL_TEMP_TYPE						CANOPEN_UNSIGNED8
 #define ESB_OIL_TEMP_PERMISSIONS				CANOPEN_RO
 
 #define ESB_OIL_LEVEL_INDEX						0x2260
