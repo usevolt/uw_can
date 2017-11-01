@@ -40,7 +40,6 @@ typedef uint8_t esb_output_state_e;
 /// @brief: Defines all ESB's EMCY message data values.
 /// All EMCY messages belong to device specific EMCY error code category (0xFF00)
 typedef enum {
-	ESB_EMCY_NONE = 0,
 	// outputs
 	ESB_EMCY_GLOW_OVERLOAD = (ESB_NODE_ID << 16),
 	ESB_EMCY_GLOW_FAULT,
@@ -93,7 +92,10 @@ typedef enum {
 	ESB_EMCY_VDD_ALT_WARNING,
 	// Engine stop solenoid misfunctioned. Could be a mistake in recognizing
 	// engine start & on solenoids, start the engine again.
-	ESB_EMCY_ENGINE_STOP_MISMATCH
+	ESB_EMCY_ENGINE_STOP_MISMATCH,
+
+
+	ESB_EMCY_COUNT
 } esb_emcy_e;
 
 
