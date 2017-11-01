@@ -80,21 +80,14 @@ typedef enum {
 	ESB_EMCY_FLEVEL_ERROR,
 	// fuel level sensor misfunction
 	ESB_EMCY_FLEVEL_FAULT,
-	// motor water temp too high
-	ESB_EMCY_MWATER_ERROR,
-	// motor oil pressure too low
-	ESB_EMCY_MOIL_ERROR,
-	// alternator is not charging
-	ESB_EMCY_MALT_ERROR,
 	// VDD is critically low
 	ESB_EMCY_VDD_LOW_WARNING,
-	// Engine is running but VDD is < 14 V => alternator is not charging
-	ESB_EMCY_VDD_ALT_WARNING,
 	// Engine stop solenoid misfunctioned. Could be a mistake in recognizing
 	// engine start & on solenoids, start the engine again.
 	ESB_EMCY_ENGINE_STOP_MISMATCH,
-
-
+	// Engine has been shut down for protection. Check oil pressure and
+	// cooling liquid temperature sensors.
+	ESB_EMCY_ENGINE_PROTECTION_SHUTDOWN,
 	ESB_EMCY_COUNT
 } esb_emcy_e;
 
