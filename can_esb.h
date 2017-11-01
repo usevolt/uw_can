@@ -27,15 +27,6 @@
 
 
 
-/// @brief: Defines the state of a single thruster power supply
-enum {
-	ESB_OUTPUT_STATE_OFF = 0,
-	ESB_OUTPUT_STATE_ON,
-	ESB_OUTPUT_STATE_OVERLOAD,
-	ESB_OUTPUT_STATE_FAULT
-};
-typedef uint8_t esb_output_state_e;
-
 
 /// @brief: Defines all ESB's EMCY message data values.
 /// All EMCY messages belong to device specific EMCY error code category (0xFF00)
