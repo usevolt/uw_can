@@ -50,7 +50,10 @@ typedef enum {
 	// battery direct fuse burned
 	FSB_EMCY_BATFUSE_FAULT,
 	// ignition key undefined state
-	FSB_EMCY_IGNKEY_FAULT
+	FSB_EMCY_IGNKEY_FAULT,
+	// notification that EMCY switch is pressed
+	FSB_EMCY_EMCY_NOTIFY
+
 } fsb_emcy_e;
 
 
