@@ -31,7 +31,6 @@
 /// @brief: Defines all FSB's EMCY message data values.
 /// All EMCY messages belong to device specific EMCY error code category (0xFF00)
 typedef enum {
-	FSB_EMCY_NONE = 0,
 	// outputs
 	FSB_EMCY_HORN_OVERCURRENT = (FSB_NODE_ID << 16),
 	FSB_EMCY_HORN_FAULT,
@@ -50,7 +49,9 @@ typedef enum {
 	// battery direct fuse burned
 	FSB_EMCY_BATFUSE_FAULT,
 	// ignition key undefined state
-	FSB_EMCY_IGNKEY_FAULT
+	FSB_EMCY_IGNKEY_FAULT,
+
+	FSB_EMCY_COUNT
 } fsb_emcy_e;
 
 
