@@ -27,20 +27,10 @@
 
 
 
-/// @brief: Defines the state of a single thruster power supply
-enum {
-	ESB_OUTPUT_STATE_OFF = 0,
-	ESB_OUTPUT_STATE_ON,
-	ESB_OUTPUT_STATE_OVERLOAD,
-	ESB_OUTPUT_STATE_FAULT
-};
-typedef uint8_t esb_output_state_e;
-
 
 /// @brief: Defines all ESB's EMCY message data values.
 /// All EMCY messages belong to device specific EMCY error code category (0xFF00)
 typedef enum {
-	ESB_EMCY_NONE = 0,
 	// outputs
 	ESB_EMCY_GLOW_OVERLOAD = (ESB_NODE_ID << 16),
 	ESB_EMCY_GLOW_FAULT,
@@ -81,19 +71,15 @@ typedef enum {
 	ESB_EMCY_FLEVEL_ERROR,
 	// fuel level sensor misfunction
 	ESB_EMCY_FLEVEL_FAULT,
-	// motor water temp too high
-	ESB_EMCY_MWATER_ERROR,
-	// motor oil pressure too low
-	ESB_EMCY_MOIL_ERROR,
-	// alternator is not charging
-	ESB_EMCY_MALT_ERROR,
 	// VDD is critically low
 	ESB_EMCY_VDD_LOW_WARNING,
-	// Engine is running but VDD is < 14 V => alternator is not charging
-	ESB_EMCY_VDD_ALT_WARNING,
 	// Engine stop solenoid misfunctioned. Could be a mistake in recognizing
 	// engine start & on solenoids, start the engine again.
-	ESB_EMCY_ENGINE_STOP_MISMATCH
+	ESB_EMCY_ENGINE_STOP_MISMATCH,
+	// Engine has been shut down for protection. Check oil pressure and
+	// cooling liquid temperature sensors.
+	ESB_EMCY_ENGINE_PROTECTION_SHUTDOWN,
+	ESB_EMCY_COUNT
 } esb_emcy_e;
 
 
@@ -180,6 +166,8 @@ typedef enum {
 
 
 
+
+
 #define ESB_RPM_INDEX							0x2200
 #define ESB_RPM_SUBINDEX						0
 #define ESB_RPM_TYPE							CANOPEN_UNSIGNED16
@@ -202,12 +190,12 @@ typedef enum {
 
 #define ESB_MOTOR_TEMP_INDEX					0x2240
 #define ESB_MOTOR_TEMP_SUBINDEX					0
-#define ESB_MOTOR_TEMP_TYPE						CANOPEN_UNSIGNED16
+#define ESB_MOTOR_TEMP_TYPE						CANOPEN_UNSIGNED8
 #define ESB_MOTOR_TEMP_PERMISSIONS				CANOPEN_RO
 
 #define ESB_OIL_TEMP_INDEX						0x2250
 #define ESB_OIL_TEMP_SUBINDEX					0
-#define ESB_OIL_TEMP_TYPE						CANOPEN_UNSIGNED16
+#define ESB_OIL_TEMP_TYPE						CANOPEN_UNSIGNED8
 #define ESB_OIL_TEMP_PERMISSIONS				CANOPEN_RO
 
 #define ESB_OIL_LEVEL_INDEX						0x2260
@@ -226,22 +214,18 @@ typedef enum {
 #define ESB_VDD_PERMISSIONS						CANOPEN_RO
 
 
+
+
 // objects to hold other nodes data
-#define ESB_FSB_TOTAL_CURRENT_INDEX				0x2A00
-#define ESB_FSB_TOTAL_CURRENT_SUBINDEX			0
-#define ESB_FSB_TOTAL_CURRENT_TYPE				CANOPEN_UNSIGNED16
-#define ESB_FSB_TOTAL_CURRENT_PERMISSIONS		CANOPEN_WO
+#define ESB_FSB_IGNKEY_INDEX					0x2A00
+#define ESB_FSB_IGNKEY_SUBINDEX					0
+#define ESB_FSB_IGNKEY_TYPE						CANOPEN_UNSIGNED8
+#define ESB_FSB_IGNKEY_PERMISSIONS				CANOPEN_WO
 
-#define ESB_IGNKEY_INDEX						0x2A01
-#define ESB_IGNKEY_SUBINDEX						0
-#define ESB_IGNKEY_TYPE							CANOPEN_UNSIGNED8
-#define ESB_IGNKEY_PERMISSIONS					CANOPEN_WO
-
-
-
-
-
-
+#define ESB_FSB_EMCY_INDEX						0x2A01
+#define ESB_FSB_EMCY_SUBINDEX					0
+#define ESB_FSB_EMCY_TYPE						CANOPEN_UNSIGNED8
+#define ESB_FSB_EMCY_PERMISSIONS				CANOPEN_WO
 
 
 

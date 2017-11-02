@@ -31,7 +31,6 @@
 /// @brief: Defines all FSB's EMCY message data values.
 /// All EMCY messages belong to device specific EMCY error code category (0xFF00)
 typedef enum {
-	FSB_EMCY_NONE = 0,
 	// outputs
 	FSB_EMCY_HORN_OVERCURRENT = (FSB_NODE_ID << 16),
 	FSB_EMCY_HORN_FAULT,
@@ -52,8 +51,9 @@ typedef enum {
 	// ignition key undefined state
 	FSB_EMCY_IGNKEY_FAULT,
 	// notification that EMCY switch is pressed
-	FSB_EMCY_EMCY_NOTIFY
+	FSB_EMCY_EMCY_NOTIFY,
 
+	FSB_EMCY_COUNT
 } fsb_emcy_e;
 
 
@@ -69,6 +69,9 @@ enum {
 };
 typedef uint8_t fsb_ignkey_states_e;
 
+
+
+#define FSB_HEATER_MAX_SPEED					1
 
 // FSB OBJECT DICTIONARY ENTRIES
 
@@ -91,7 +94,7 @@ typedef uint8_t fsb_ignkey_states_e;
 #define FSB_RADIO_STATUS_INDEX					0x2120
 #define FSB_RADIO_STATUS_SUBINDEX				0
 #define FSB_RADIO_STATUS_TYPE					CANOPEN_UNSIGNED8
-#define FSB_RADIO_STATUS_PERMISSIONS			CANOPEN_RO
+#define FSB_RADIO_STATUS_PERMISSIONS			CANOPEN_RW
 
 #define FSB_RADIO_CURRENT_INDEX					0x2121
 #define FSB_RADIO_CURRENT_SUBINDEX				0
@@ -101,7 +104,7 @@ typedef uint8_t fsb_ignkey_states_e;
 #define FSB_AUX_STATUS_INDEX					0x2130
 #define FSB_AUX_STATUS_SUBINDEX					0
 #define FSB_AUX_STATUS_TYPE						CANOPEN_UNSIGNED8
-#define FSB_AUX_STATUS_PERMISSIONS				CANOPEN_RO
+#define FSB_AUX_STATUS_PERMISSIONS				CANOPEN_RW
 
 #define FSB_AUX_CURRENT_INDEX					0x2131
 #define FSB_AUX_CURRENT_SUBINDEX				0
