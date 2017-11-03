@@ -171,7 +171,7 @@ typedef enum {
 #define ESB_RPM_INDEX							0x2200
 #define ESB_RPM_SUBINDEX						0
 #define ESB_RPM_TYPE							CANOPEN_UNSIGNED16
-#define ESB_RPM_PERMISSIONS						CANOPEN_RO
+#define ESB_RPM_PERMISSIONS						CANOPEN_RW
 
 #define ESB_ALT_L_INDEX							0x2210
 #define ESB_ALT_L_SUBINDEX						0
