@@ -12,20 +12,8 @@
 /// @file: Defines the UW ceiling supply board CANopen interface.
 
 #include <stdint.h>
-#include "uv_if_config.h"
 
 
-
-
-
-// ESB Interface revision
-//
-// 1: Initial revision
-// 2: Added proportional solenoid dither frequency & amplitude settings
-// 3: Oil cooler moved to ESB from CSB
-#if !CONFIG_ESB_IF_REVISION
-#error "CONFIG_ESB_IF_REVISION should define the CAN interface revision number for ESB."
-#endif
 
 
 
@@ -86,10 +74,8 @@ typedef enum {
 	// Engine has been shut down for protection. Check oil pressure and
 	// cooling liquid temperature sensors.
 	ESB_EMCY_ENGINE_PROTECTION_SHUTDOWN,
-#if (CONFIG_ESB_IF_REVISION > 2)
-	ESB_EMCY_ESB_EMCY_OILCOOLER_OVERCURRENT,
+	ESB_EMCY_OILCOOLER_OVERCURRENT,
 	ESB_EMCY_OILCOOLER_FAULT,
-#endif
 	ESB_EMCY_COUNT
 } esb_emcy_e;
 
@@ -176,7 +162,20 @@ typedef enum {
 #define ESB_ALT_IG_CURRENT_PERMISSIONS			CANOPEN_RO
 
 
+#define ESB_OILCOOLER_STATUS_INDEX				0x2170
+#define ESB_OILCOOLER_STATUS_SUBINDEX			0
+#define ESB_OILCOOLER_STATUS_TYPE				CANOPEN_UNSIGNED8
+#define ESB_OILCOOLER_STATUS_PERMISSIONS		CANOPEN_RW
 
+#define ESB_OILCOOLER_CURRENT_INDEX				0x2171
+#define ESB_OILCOOLER_CURRENT_SUBINDEX			0
+#define ESB_OILCOOLER_CURRENT_TYPE				CANOPEN_UNSIGNED16
+#define ESB_OILCOOLER_CURRENT_PERMISSIONS		CANOPEN_RO
+
+#define ESB_OILCOOLER_TRIGGER_INDEX				0x2172
+#define ESB_OILCOOLER_TRIGGER_SUBINDEX			0
+#define ESB_OILCOOLER_TRIGGER_TYPE				CANOPEN_SIGNED8
+#define ESB_OILCOOLER_TRIGGER_PERMISSIONS		CANOPEN_RW
 
 
 
@@ -225,7 +224,6 @@ typedef enum {
 #define ESB_VDD_TYPE							CANOPEN_UNSIGNED16
 #define ESB_VDD_PERMISSIONS						CANOPEN_RO
 
-#if (CONFIG_ESB_IF_REVISION > 1)
 // Dither frequency is specified in Hz
 #define ESB_DITHER_FREQ_INDEX					0x2300
 #define ESB_DITHER_FREQ_SUBINDEX				0
@@ -237,7 +235,6 @@ typedef enum {
 #define ESB_DITHER_AMPL_SUBINDEX				0
 #define ESB_DITHER_AMPL_TYPE					CANOPEN_UNSIGNED16
 #define ESB_DITHER_AMPL_PERMISSIONS				CANOPEN_RW
-#endif
 
 
 
