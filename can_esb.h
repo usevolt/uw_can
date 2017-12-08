@@ -16,6 +16,13 @@
 
 
 
+
+
+// ESB Interface revision
+//
+// 1: Initial revision
+// 2: Added proportional solenoid dither frequency & amplitude settings
+// 3: Oil cooler moved to ESB from CSB
 #if !CONFIG_ESB_IF_REVISION
 #error "CONFIG_ESB_IF_REVISION should define the CAN interface revision number for ESB."
 #endif
@@ -79,6 +86,10 @@ typedef enum {
 	// Engine has been shut down for protection. Check oil pressure and
 	// cooling liquid temperature sensors.
 	ESB_EMCY_ENGINE_PROTECTION_SHUTDOWN,
+#if (CONFIG_ESB_IF_REVISION > 2)
+	ESB_EMCY_ESB_EMCY_OILCOOLER_OVERCURRENT,
+	ESB_EMCY_OILCOOLER_FAULT,
+#endif
 	ESB_EMCY_COUNT
 } esb_emcy_e;
 

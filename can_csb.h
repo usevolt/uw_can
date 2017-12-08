@@ -15,7 +15,10 @@
 #include "uv_if_config.h"
 
 
-
+// ESB Interface revision
+//
+// 1: Initial revision
+// 2: Oil cooler removed
 #if !CONFIG_CSB_IF_REVISION
 #error "CONFIG_CSB_IF_REVISION should define the CAN interface revision number for CSB."
 #endif
@@ -45,9 +48,11 @@ typedef enum {
 	CSB_EMCY_WIPER_FAULT,
 	CSB_EMCY_COOLER_OVERCURRENT,
 	CSB_EMCY_COOLER_FAULT,
+#if CONFIG_CSB_IF_REVISION < 2
+	// deprecated, moved to ESB
 	CSB_EMCY_OILCOOLER_OVERCURRENT,
 	CSB_EMCY_OILCOOLER_FAULT,
-
+#endif
 	CSB_EMCY_COUNT
 } csb_emcy_e;
 
@@ -152,6 +157,8 @@ typedef enum {
 #define CSB_COOLER_P_TYPE					CANOPEN_UNSIGNED8
 #define CSB_COOLER_P_PERMISSIONS			CANOPEN_RO
 
+#if (CONFIG_CSB_IF_REVISION < 2)
+// deprecated, moved to ESB
 #define CSB_OILCOOLER_STATUS_INDEX			0x2170
 #define CSB_OILCOOLER_STATUS_SUBINDEX		0
 #define CSB_OILCOOLER_STATUS_TYPE			CANOPEN_UNSIGNED8
@@ -166,6 +173,7 @@ typedef enum {
 #define CSB_OILCOOLER_TRIGGER_SUBINDEX		0
 #define CSB_OILCOOLER_TRIGGER_TYPE			CANOPEN_SIGNED8
 #define CSB_OILCOOLER_TRIGGER_PERMISSIONS	CANOPEN_RW
+#endif
 
 
 // RX data objects
