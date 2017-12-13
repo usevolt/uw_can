@@ -12,13 +12,6 @@
 /// @file: Defines the UW ceiling supply board CANopen interface.
 
 #include <stdint.h>
-#include "uv_if_config.h"
-
-
-
-#if !CONFIG_FSB_IF_REVISION
-#error "CONFIG_FSB_IF_REVISION should define the CAN interface revision number for FSB."
-#endif
 
 
 
