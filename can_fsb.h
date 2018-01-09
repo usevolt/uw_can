@@ -164,6 +164,10 @@ typedef uint8_t fsb_ignkey_states_e;
 #define FSB_DOORSW2_TYPE						CANOPEN_UNSIGNED8
 #define FSB_DOORSW2_PERMISSIONS					CANOPEN_RO
 
+#define FSB_SEATSW_INDEX						0x2216
+#define FSB_SEATSW_SUBINDEX						0
+#define FSB_SEATSW_TYPE							CANOPEN_UNSIGNED8
+#define FSB_SEATSW_PERMISSIONS					CANOPEN_RO
 
 
 
