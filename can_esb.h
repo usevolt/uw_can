@@ -224,6 +224,11 @@ typedef enum {
 #define ESB_VDD_TYPE							CANOPEN_UNSIGNED16
 #define ESB_VDD_PERMISSIONS						CANOPEN_RO
 
+#define ESB_HOUR_INDEX							0x2290
+#define ESB_HOUR_SUBINDEX						0
+#define ESB_HOUR_TYPE							CANOPEN_UNSIGNED32
+#define ESB_HOUR_PERMISSIONS					CANOPEN_RW
+
 // Dither frequency is specified in Hz
 #define ESB_DITHER_FREQ_INDEX					0x2300
 #define ESB_DITHER_FREQ_SUBINDEX				0
