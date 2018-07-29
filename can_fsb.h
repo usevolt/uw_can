@@ -68,7 +68,7 @@ typedef uint8_t fsb_ignkey_states_e;
 
 
 
-#define FSB_HEATER_MAX_SPEED					1
+#define FSB_HEATER_MAX_SPEED					100
 
 // FSB OBJECT DICTIONARY ENTRIES
 
