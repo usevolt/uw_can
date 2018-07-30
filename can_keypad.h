@@ -45,7 +45,7 @@ typedef enum {
 
 
 
-
+#define KEYP_BUTTON_COUNT				10
 
 #define KEYP_BUTTON1_INDEX				0x2001
 #define KEYP_BUTTON1_ARRAY_MAX_SIZE		4
