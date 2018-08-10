@@ -267,6 +267,7 @@ typedef enum {
 
 
 #define HCU_FSB_INDEX_OFFSET					0x1000
+#define HCU_CCU_INDEX_OFFSET					0x2000
 
 
 
