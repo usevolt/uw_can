@@ -89,8 +89,7 @@ typedef enum {
 
 /// @brief: Defines available implementes for this machine
 typedef enum {
-	HCU_IMPLEMENT_NONE = 0,
-	HCU_IMPLEMENT_UW180S,
+	HCU_IMPLEMENT_UW180S = 0,
 	HCU_IMPLEMENT_UW50,
 	HCU_IMPLEMENT_UW100,
 	HCU_IMPLEMENT_COUNT
