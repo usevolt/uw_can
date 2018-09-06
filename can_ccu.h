@@ -74,12 +74,13 @@ typedef enum {
 } ccu_emcy_e;
 
 
-typedef enum {
+enum {
 	CCU_GEAR_1 = 0,
 	CCU_GEAR_2,
 	CCU_GEAR_3,
 	CCU_GEAR_COUNT
-} ccu_gear_e;
+};
+typedef uint8_t ccu_gear_e;
 
 
 /// @brief: Cabin rotate directions. Forward means in the working direction,

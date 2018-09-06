@@ -88,12 +88,13 @@ typedef enum {
 
 
 /// @brief: Defines available implementes for this machine
-typedef enum {
+enum {
 	HCU_IMPLEMENT_UW180S = 0,
 	HCU_IMPLEMENT_UW50,
 	HCU_IMPLEMENT_UW100,
 	HCU_IMPLEMENT_COUNT
-} hcu_impls_e;
+};
+typedef uint8_t hcu_impls_e;
 
 
 /// @brief: Foot positions
