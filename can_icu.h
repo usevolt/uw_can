@@ -53,6 +53,26 @@ typedef enum {
 } icu_emcy_e;
 
 
+/// @brief: Fuzzy logic level structure. As this is mapped to object dictionary,
+/// this should be 32-bits in total size
+typedef struct {
+	// distance from the target when this level applies. When the actual distance to target is below
+	// this, the fuzzy logic level is increased
+	uint16_t dist_mm;
+	// feeding speed on this level
+	uint8_t max_speed;
+	uint8_t _unused;
+} icu_feed_fl_st;
+
+
+typedef enum {
+	ICU_FEED_STATE_OFF = 0,
+	ICU_FEED_STATE_MANUAL,
+	ICU_FEED_STATE_ON,
+	ICU_FEED_STATE_TARGET_REACHED,
+	ICU_FEED_STATE_TARGET_UNREACHED
+} icu_feed_states_e;
+
 
 
 // ICU OBJECT DICTIONARY ENTRIES
@@ -79,7 +99,7 @@ typedef enum {
 #define ICU_BLADEOPEN_REQ_PERMISSIONS			CANOPEN_RW
 
 #define ICU_BLADEOPEN_PARAM_INDEX				0x2201
-#define ICU_BLADEOPEN_PARAM_ARRAY_MAX_SIZE		5
+#define ICU_BLADEOPEN_PARAM_ARRAY_MAX_SIZE		6
 #define ICU_BLADEOPEN_PARAM_TYPE				CANOPEN_ARRAY16
 #define ICU_BLADEOPEN_PARAM_PERMISSIONS			CANOPEN_RW
 
@@ -94,7 +114,7 @@ typedef enum {
 #define ICU_FEEDOPEN_REQ_PERMISSIONS			CANOPEN_RW
 
 #define ICU_FEEDOPEN_PARAM_INDEX				0x2211
-#define ICU_FEEDOPEN_PARAM_ARRAY_MAX_SIZE		5
+#define ICU_FEEDOPEN_PARAM_ARRAY_MAX_SIZE		6
 #define ICU_FEEDOPEN_PARAM_TYPE					CANOPEN_ARRAY16
 #define ICU_FEEDOPEN_PARAM_PERMISSIONS			CANOPEN_RW
 
@@ -124,7 +144,7 @@ typedef enum {
 #define ICU_TILT_REQ_PERMISSIONS				CANOPEN_RW
 
 #define ICU_TILT_PARAM_INDEX					0x2231
-#define ICU_TILT_PARAM_ARRAY_MAX_SIZE			5
+#define ICU_TILT_PARAM_ARRAY_MAX_SIZE			6
 #define ICU_TILT_PARAM_TYPE						CANOPEN_ARRAY16
 #define ICU_TILT_PARAM_PERMISSIONS				CANOPEN_RW
 
@@ -139,7 +159,7 @@ typedef enum {
 #define ICU_FEED_REQ_PERMISSIONS				CANOPEN_RW
 
 #define ICU_FEED_PARAM_INDEX					0x2241
-#define ICU_FEED_PARAM_ARRAY_MAX_SIZE			5
+#define ICU_FEED_PARAM_ARRAY_MAX_SIZE			6
 #define ICU_FEED_PARAM_TYPE						CANOPEN_ARRAY16
 #define ICU_FEED_PARAM_PERMISSIONS				CANOPEN_RW
 
@@ -173,6 +193,11 @@ typedef enum {
 #define ICU_LEN_CALIB_SUBINDEX					0
 #define ICU_LEN_CALIB_TYPE						CANOPEN_UNSIGNED16
 #define ICU_LEN_CALIB_PERMISSIONS				CANOPEN_RW
+
+#define ICU_LEN_STATE_INDEX						0x2303
+#define ICU_LEN_STATE_SUBINDEX					0
+#define ICU_LEN_STATE_TYPE						CANOPEN_UNSIGNED8
+#define ICU_LEN_STATE_PERMISSIONS				CANOPEN_RO
 
 #define ICU_WIDTH_UM_INDEX						0x2305
 #define ICU_WIDTH_UM_SUBINDEX					0
