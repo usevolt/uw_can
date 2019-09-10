@@ -296,6 +296,7 @@ typedef uint8_t icu_tilt_dir_e;
 
 #define ICU_FSB_INDEX_OFFSET					0x1000
 
+#define ICU_HCU_INDEX_OFFSET					0x2000
 
 
 #endif /* CAN_ICU_H_ */
