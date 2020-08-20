@@ -87,7 +87,8 @@ typedef uint8_t ccu_gear_e;
 /// backward is the transport direction
 enum {
 	CCU_CABDIR_FORWARD = 0,
-	CCU_CABDIR_BACKWARD
+	CCU_CABDIR_BACKWARD,
+	CCU_CABDIR_COUNT
 };
 typedef uint8_t ccu_cabdir_e;
 
