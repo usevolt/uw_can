@@ -53,6 +53,8 @@ typedef enum {
 	FSB_EMCY_FUEL_LEVEL_WARNING,
 	// fuel level fault
 	FSB_EMCY_FUEL_LEVEL_FAULT,
+	FSB_EMCY_COOLAIR_OVERCURRENT,
+	FSB_EMCY_COOLAIR_FAULT,
 
 	FSB_EMCY_COUNT
 } fsb_emcy_e;
@@ -72,7 +74,15 @@ typedef uint8_t fsb_ignkey_states_e;
 
 
 
-#define FSB_HEATER_MAX_SPEED					100
+// half of the heater speed are used for cool air, another half for the hot air
+enum {
+	FSB_HEATER_OFF = 0,
+	FSB_HEATER_SPEED_COLD1,
+	FSB_HEATER_SPEED_COLD2,
+	FSB_HEATER_SPEED_WARM1,
+	FSB_HEATER_SPEED_WARM2,
+	FSB_HEATER_SPEED_COUNT
+};
 
 // FSB OBJECT DICTIONARY ENTRIES
 
@@ -193,6 +203,10 @@ typedef uint8_t fsb_ignkey_states_e;
 #define FSB_FUEL_LEVEL_TYPE						CANOPEN_UNSIGNED8
 #define FSB_FUEL_LEVEL_PERMISSIONS				CANOPEN_RO
 
+#define FSB_COOLAIR_STATE_INDEX					0x2218
+#define FSB_COOLAIR_STATE_SUBINDEX				0
+#define FSB_COOLAIR_STATE_TYPE					CANOPEN_UNSIGNED8
+#define FSB_COOLAIR_STATE_PERMISSIONS			CANOPEN_RO
 
 
 
